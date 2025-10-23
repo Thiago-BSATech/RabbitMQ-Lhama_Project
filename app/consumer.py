@@ -10,7 +10,7 @@ class RabbitmqConsumer:
         self.__password = "guest"
         self.__queue = "data_queue"
         self.__callback = callback
-        self.__channel = self.create_channel()
+        self.__channel = self.__create_channel()
 
 
 
@@ -48,7 +48,7 @@ class RabbitmqConsumer:
 
     def start(self):
         print(f'Listen RabbitMQ on port ...')
-        self.channel.start_consuming()
+        self.__channel.start_consuming()
 
 def minha_callback(ch, method, properties, body):
     print(body)
